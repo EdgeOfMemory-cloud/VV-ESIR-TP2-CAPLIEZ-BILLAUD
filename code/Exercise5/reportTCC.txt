@@ -1,0 +1,17 @@
+fr.istic.vv.ClassA
+Le tcc est de 16/380.
+
+fr.istic.vv.ClassB
+Le tcc est de 12/12.
+
+fr.istic.vv.ClassC
+Le tcc est de 12/12.
+
+fr.istic.vv.ClassD
+Le tcc est de 12/12.
+
+fr.istic.vv.Main
+Il n'y a qu'une seule methode donc le tcc est de 1.
+
+fr.istic.vv.PublicElementsPrinter
+Le tcc est de 36/56.

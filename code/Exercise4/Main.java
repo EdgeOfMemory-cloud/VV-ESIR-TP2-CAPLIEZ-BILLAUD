@@ -1,3 +1,8 @@
+/**
+ * @author Louis-Gabriel CAPLIEZ (EdgeOfMemory-cloud), Valere BILLAUD, ESIR 2 Spe INFO, option SI, Groupe 1
+ * @date 20221209
+ */
+
 package fr.istic.vv;
 
 import com.github.javaparser.Problem;
@@ -10,12 +15,16 @@ import com.github.javaparser.utils.SourceRoot;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+    	PrintWriter writer = new PrintWriter("resFichier.txt", "UTF-8");
+
+ 
         if(args.length == 0) {
             System.err.println("Should provide the path to the source code");
             System.exit(1);
@@ -28,11 +37,12 @@ public class Main {
         }
 
         SourceRoot root = new SourceRoot(file.toPath());
-        PublicElementsPrinter printer = new PublicElementsPrinter();
+        PublicElementsPrinter printer = new PublicElementsPrinter(writer);
         root.parse("", (localPath, absolutePath, result) -> {
             result.ifSuccessful(unit -> unit.accept(printer, null));
             return SourceRoot.Callback.Result.DONT_SAVE;
         });
+        writer.close();
     }
 
 
